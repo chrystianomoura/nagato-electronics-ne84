@@ -16,10 +16,14 @@
 
 /* ==========================
    BODY
+   100vh funciona como fallback para navegadores antigos.
+   100dvh acompanha a altura realmente disponível no navegador mobile.
 ========================== */
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
+
   overflow: hidden;
   background-color: #020504;
   font-family: "Courier New", Courier, monospace;
@@ -27,13 +31,17 @@ body {
 
 /* ==========================
    CENA
-   Ocupa toda a viewport e cria a base escura/esverdeada do projeto.
+   Ocupa toda a área visível da viewport.
+   dvh evita que barras do navegador mobile escondam parte da cena.
 ========================== */
 
 .scene {
   position: relative;
   width: 100vw;
+
   height: 100vh;
+  height: 100dvh;
+
   overflow: hidden;
 
   background:
@@ -72,7 +80,6 @@ body {
   opacity: 0.35;
 
   transform: perspective(800px) rotateX(55deg) scale(1.6);
-
   transform-origin: center bottom;
 
   mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 100%);
@@ -135,7 +142,6 @@ body {
   color: rgba(126, 225, 145, 0.84);
 
   font-family: Georgia, "Times New Roman", serif;
-
   font-style: italic;
 
   line-height: 1;
@@ -213,9 +219,7 @@ body {
   padding: 1.1% 2.5%;
 
   display: flex;
-
   flex-direction: column;
-
   justify-content: space-between;
 
   font-family: "Share Tech Mono", monospace;
@@ -242,7 +246,6 @@ body {
   height: 55%;
 
   display: flex;
-
   align-items: center;
 }
 
@@ -255,9 +258,7 @@ body {
   transform: translateY(-50%);
 
   font-size: 4.4cqw;
-
   font-weight: 500;
-
   line-height: 1;
 
   opacity: 0.9;
@@ -274,9 +275,7 @@ body {
   text-align: right;
 
   font-size: 4.8cqw;
-
   font-weight: 400;
-
   line-height: 1;
 
   letter-spacing: -0.5px;
@@ -351,7 +350,6 @@ body {
   height: 30%;
 
   display: flex;
-
   align-items: flex-end;
 }
 
@@ -359,17 +357,13 @@ body {
   width: 100%;
 
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   gap: 6px;
 
   font-size: 1.95cqw;
-
   font-weight: 400;
-
   line-height: 1;
 
   letter-spacing: 0.2px;
@@ -416,7 +410,6 @@ body {
   position: absolute;
 
   border: none;
-
   border-radius: 10%;
 
   background: transparent;
@@ -712,11 +705,20 @@ body {
   }
 }
 
+/*
+   Em telas com pouca altura, a calculadora passa a ser dimensionada
+   pela altura disponível.
+
+   94vh funciona como fallback para navegadores antigos.
+   94dvh considera dinamicamente as barras do navegador mobile.
+*/
+
 @media (max-height: 750px) {
   .calculator {
     width: auto;
 
     height: 94vh;
+    height: 94dvh;
 
     aspect-ratio: 1122 / 1402;
   }

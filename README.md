@@ -6,6 +6,12 @@ O projeto combina uma interface construída sobre uma arte visual própria, viso
 
 Além de funcionar como projeto de portfólio, seu código foi organizado por responsabilidades e comentado para também servir como material de estudo de **HTML, CSS e JavaScript**.
 
+## Projeto online
+
+Acesse a versão publicada da NE-84:
+
+**[Ver projeto online](https://chrystianomoura.github.io/nagato-electronics-ne84/)**
+
 ## Funcionalidades
 
 - Operações de soma, subtração, multiplicação e divisão.
@@ -214,6 +220,7 @@ A suíte atual possui **37 testes automatizados**.
 - Tratamento de erros.
 - Timers com `setTimeout` e `setInterval`.
 - Debounce.
+- `requestAnimationFrame`.
 - Geração pseudoaleatória com seed.
 - Detecção de colisões.
 - Spatial Hash.

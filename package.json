@@ -1,0 +1,13 @@
+{
+  "name": "nagato-electronics-ne84",
+  "version": "1.0.0",
+  "description": "Calculadora retrô interativa NE-84 com background matemático e testes automatizados.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,737 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+/* ==========================
+   RESET
+   Remove espaçamentos padrão do navegador e faz width/height
+   incluírem padding e borda no cálculo do tamanho dos elementos.
+========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #020504;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* ==========================
+   CENA
+   Ocupa toda a viewport e cria a base escura/esverdeada do projeto.
+========================== */
+
+.scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 50% 42%, rgba(7, 42, 30, 0.32), transparent 35%),
+    radial-gradient(circle at 15% 65%, rgba(0, 60, 46, 0.11), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(0, 70, 50, 0.1), transparent 30%),
+    linear-gradient(180deg, #020605 0%, #010403 55%, #000201 100%);
+}
+
+/* ==========================
+   BACKGROUND
+========================== */
+
+.tech-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================
+   GRID VISUAL
+   Duas grades lineares sobrepostas formam uma malha em perspectiva.
+========================== */
+
+.background-grid {
+  position: absolute;
+  inset: -10%;
+
+  background-image:
+    linear-gradient(rgba(25, 255, 160, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 255, 160, 0.018) 1px, transparent 1px);
+
+  background-size: 55px 55px;
+  opacity: 0.35;
+
+  transform: perspective(800px) rotateX(55deg) scale(1.6);
+
+  transform-origin: center bottom;
+
+  mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 100%);
+}
+
+/* ==========================
+   GLOW CENTRAL
+========================== */
+
+.background-glow {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+
+  width: 650px;
+  height: 650px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(14, 100, 68, 0.13),
+    rgba(5, 45, 32, 0.05) 38%,
+    transparent 70%
+  );
+
+  filter: blur(30px);
+}
+
+/* ==========================
+   CAMADA MATEMÁTICA
+   Contêiner das fórmulas que recebe o deslocamento de parallax via JS.
+========================== */
+
+.math-layer {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  will-change: transform;
+
+  transition: transform 90ms linear;
+}
+
+/* ==========================
+   EXPRESSÕES
+========================== */
+
+.formula {
+  position: absolute;
+
+  display: block;
+  width: max-content;
+
+  white-space: nowrap;
+
+  color: rgba(126, 225, 145, 0.84);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  text-shadow: 0 0 6px rgba(70, 225, 140, 0.22);
+
+  transform-origin: center;
+
+  user-select: none;
+
+  visibility: hidden;
+}
+
+/* ==========================
+   CALCULADORA
+   Contêiner proporcional da imagem, visor e áreas clicáveis.
+   container-type permite usar cqw no tamanho das fontes do visor.
+========================== */
+
+.calculator {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: min(80vw, 560px);
+
+  aspect-ratio: 1122 / 1402;
+
+  z-index: 10;
+
+  /*
+     Permite que as fontes do
+     visor acompanhem a largura
+     da própria calculadora.
+  */
+  container-type: inline-size;
+}
+
+/* ==========================
+   IMAGEM
+========================== */
+
+.calculator-image {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ==========================
+   DISPLAY
+   Sobrepõe o conteúdo digital exatamente à área de visor da imagem.
+========================== */
+
+.calculator-display {
+  position: absolute;
+
+  top: 12.5%;
+  left: 34.5%;
+
+  width: 33.1%;
+  height: 6.9%;
+
+  padding: 1.1% 2.5%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  font-family: "Share Tech Mono", monospace;
+
+  color: #32ff73;
+
+  text-shadow:
+    0 0 1px rgba(50, 255, 115, 0.45),
+    0 0 3px rgba(50, 255, 115, 0.18);
+
+  pointer-events: none;
+
+  z-index: 20;
+}
+
+/* ==========================
+   NÚMEROS + OPERADOR
+========================== */
+
+.display-main {
+  position: relative;
+
+  width: 100%;
+  height: 55%;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.display-operator {
+  position: absolute;
+
+  left: -9px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 4.4cqw;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  opacity: 0.9;
+}
+
+.display-result {
+  position: absolute;
+
+  left: 0;
+  right: -8px;
+
+  white-space: nowrap;
+
+  text-align: right;
+
+  font-size: 4.8cqw;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -0.5px;
+
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================
+   PULSO
+========================== */
+
+.display-result.result-pulse {
+  animation: resultPulse 160ms ease-out;
+}
+
+@keyframes resultPulse {
+  0% {
+    text-shadow:
+      0 0 1px rgba(50, 255, 115, 0.45),
+      0 0 3px rgba(50, 255, 115, 0.18);
+  }
+
+  50% {
+    text-shadow:
+      0 0 4px rgba(50, 255, 115, 0.95),
+      0 0 10px rgba(50, 255, 115, 0.6);
+  }
+
+  100% {
+    text-shadow:
+      0 0 1px rgba(50, 255, 115, 0.45),
+      0 0 3px rgba(50, 255, 115, 0.18);
+  }
+}
+
+/* ==========================
+   ERRO
+========================== */
+
+.display-result.error-flash {
+  animation: errorFlash 500ms ease-in-out;
+}
+
+@keyframes errorFlash {
+  0% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 0.15;
+  }
+
+  60% {
+    opacity: 1;
+
+    text-shadow:
+      0 0 5px rgba(50, 255, 115, 0.95),
+      0 0 12px rgba(50, 255, 115, 0.65);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ==========================
+   HORA + DATA
+========================== */
+
+.display-info {
+  width: 100%;
+  height: 30%;
+
+  display: flex;
+
+  align-items: flex-end;
+}
+
+.date-time {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 1.95cqw;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
+
+  transform: translateY(2.5px);
+}
+
+#clock {
+  text-align: left;
+
+  transform: translateX(-9px);
+}
+
+#date {
+  text-align: right;
+
+  transform: translateX(9px);
+}
+
+/* ==========================
+   CONTROLES
+   Camada transparente sobre a imagem. O contêiner ignora cliques,
+   enquanto cada .key reativa pointer-events na sua própria área.
+========================== */
+
+.calculator-controls {
+  position: absolute;
+  inset: 0;
+
+  z-index: 30;
+
+  pointer-events: none;
+}
+
+/* ==========================
+   BOTÕES
+   Cada botão HTML é invisível e ocupa a posição da tecla desenhada
+   na imagem. Isso mantém clique, toque e teclado ligados ao mesmo DOM.
+========================== */
+
+.key {
+  position: absolute;
+
+  border: none;
+
+  border-radius: 10%;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  transition:
+    background-color 0.08s ease,
+    transform 0.08s ease,
+    filter 0.08s ease,
+    box-shadow 0.08s ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ==========================
+   FOCO
+   Neutraliza somente o contorno visual nativo. Os botões continuam
+   elementos <button> e permanecem focáveis pelo navegador.
+========================== */
+
+.key:focus,
+.key:focus-visible {
+  outline: none;
+}
+
+/* ==========================
+   HOVER PADRÃO
+========================== */
+
+.key:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, 0.2),
+    0 0 5px rgba(255, 255, 255, 0.1);
+
+  filter: brightness(1.15);
+}
+
+/* ==========================
+   HOVER AC
+========================== */
+
+.key-ac:hover {
+  background-color: rgba(255, 40, 40, 0.2);
+
+  box-shadow:
+    inset 0 0 7px rgba(255, 100, 100, 0.3),
+    0 0 5px rgba(255, 45, 45, 0.22);
+
+  filter: brightness(1.18) saturate(1.12);
+}
+
+/* ==========================
+   HOVER =
+========================== */
+
+.key-equals:hover {
+  background-color: rgba(255, 205, 25, 0.2);
+
+  box-shadow:
+    inset 0 0 7px rgba(255, 225, 80, 0.32),
+    0 0 5px rgba(255, 195, 20, 0.24);
+
+  filter: brightness(1.18) saturate(1.12);
+}
+
+/* ==========================
+   CLIQUE / TECLADO FÍSICO
+   :active atende mouse/toque; .key-pressed é aplicada pelo JavaScript
+   para reproduzir a mesma sensação ao usar o teclado físico.
+========================== */
+
+.key:active,
+.key.key-pressed {
+  background-color: rgba(0, 0, 0, 0.65);
+
+  transform: translateY(3px) scale(0.9);
+
+  box-shadow:
+    inset 0 3px 7px rgba(0, 0, 0, 0.65),
+    inset 0 0 5px rgba(0, 0, 0, 0.45);
+
+  filter: brightness(0.7);
+}
+
+/* ==========================
+   AC PRESSIONADO
+========================== */
+
+.key-ac:active,
+.key-ac.key-pressed {
+  background-color: rgba(100, 0, 0, 0.38);
+
+  filter: brightness(0.72) saturate(1.15);
+}
+
+/* ==========================
+   = PRESSIONADO
+========================== */
+
+.key-equals:active,
+.key-equals.key-pressed {
+  background-color: rgba(115, 80, 0, 0.34);
+
+  filter: brightness(0.72) saturate(1.15);
+}
+
+/* ==========================
+   LINHA 1
+========================== */
+
+.key-ac {
+  top: 24.9%;
+  left: 33.5%;
+
+  width: 7.1%;
+  height: 4.15%;
+}
+
+.key-sign {
+  top: 24.9%;
+  left: 42.55%;
+
+  width: 7.1%;
+  height: 4.15%;
+}
+
+.key-percent {
+  top: 24.9%;
+  left: 51.9%;
+
+  width: 7.1%;
+  height: 4.15%;
+}
+
+.key-divide {
+  top: 24.9%;
+  left: 61%;
+
+  width: 7.1%;
+  height: 4.13%;
+}
+
+/* ==========================
+   LINHA 2
+========================== */
+
+.key-7 {
+  top: 30.1%;
+  left: 33.4%;
+
+  width: 7.1%;
+  height: 4.15%;
+}
+
+.key-8 {
+  top: 30.1%;
+  left: 42.6%;
+
+  width: 7.1%;
+  height: 4.15%;
+}
+
+.key-9 {
+  top: 30.1%;
+  left: 51.9%;
+
+  width: 7.1%;
+  height: 4.15%;
+}
+
+.key-multiply {
+  top: 30.1%;
+  left: 61%;
+
+  width: 7.1%;
+  height: 4.15%;
+}
+
+/* ==========================
+   LINHA 3
+========================== */
+
+.key-4 {
+  top: 35.1%;
+  left: 33.4%;
+
+  width: 7.1%;
+  height: 4.13%;
+}
+
+.key-5 {
+  top: 35.1%;
+  left: 42.55%;
+
+  width: 7.1%;
+  height: 4.13%;
+}
+
+.key-6 {
+  top: 35.1%;
+  left: 51.9%;
+
+  width: 7.1%;
+  height: 4.13%;
+}
+
+.key-subtract {
+  top: 35.1%;
+  left: 61%;
+
+  width: 7.1%;
+  height: 4.13%;
+}
+
+/* ==========================
+   LINHA 4
+========================== */
+
+.key-1 {
+  top: 40.5%;
+  left: 33.4%;
+
+  width: 7.1%;
+  height: 4%;
+}
+
+.key-2 {
+  top: 40.5%;
+  left: 42.55%;
+
+  width: 7.1%;
+  height: 4%;
+}
+
+.key-3 {
+  top: 40.5%;
+  left: 51.8%;
+
+  width: 7.1%;
+  height: 4%;
+}
+
+.key-add {
+  top: 40.5%;
+  left: 61.15%;
+
+  width: 7.1%;
+  height: 4%;
+}
+
+/* ==========================
+   LINHA 5
+========================== */
+
+.key-0 {
+  top: 45.8%;
+  left: 33.6%;
+
+  width: 16.4%;
+  height: 4.2%;
+}
+
+.key-decimal {
+  top: 45.8%;
+  left: 51.8%;
+
+  width: 7.5%;
+  height: 4.2%;
+}
+
+.key-equals {
+  top: 45.8%;
+  left: 61%;
+
+  width: 7.45%;
+  height: 4.11%;
+}
+
+/* ==========================
+   RESPONSIVIDADE
+   Ajusta apenas a escala da calculadora; as coordenadas internas usam
+   porcentagens e continuam proporcionais à imagem original.
+========================== */
+
+@media (max-width: 700px) {
+  .calculator {
+    width: min(96vw, 500px);
+  }
+}
+
+@media (max-height: 750px) {
+  .calculator {
+    width: auto;
+
+    height: 94vh;
+
+    aspect-ratio: 1122 / 1402;
+  }
+}
+
+/* ==========================
+   REDUÇÃO DE MOVIMENTO
+   Respeita a preferência do sistema por menos animações/transições.
+========================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .key,
+  .display-result,
+  .math-layer {
+    transition: none;
+    animation: none !important;
+  }
+}

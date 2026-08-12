@@ -1,0 +1,566 @@
+<!doctype html>
+
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Nagato Electronics | NE-84</title>
+
+    <link rel="stylesheet" href="./estilos/style.css" />
+  </head>
+
+  <body>
+    <main class="scene">
+      <!-- =========================
+           BACKGROUND MATEMÁTICO
+           Elementos puramente decorativos. O atributo aria-hidden
+           evita que leitores de tela anunciem as 100 fórmulas.
+      ========================== -->
+
+      <div class="tech-background" aria-hidden="true">
+        <div class="background-grid"></div>
+
+        <div class="background-glow"></div>
+
+        <!-- =========================
+             100 EXPRESSÕES
+             O JavaScript posiciona, dimensiona e distribui estas
+             fórmulas dinamicamente conforme o tamanho da viewport.
+        ========================== -->
+
+        <div class="math-layer">
+          <!-- 01 -->
+          <span class="formula"> e<sup>iπ</sup> + 1 = 0 </span>
+
+          <!-- 02 -->
+          <span class="formula"> a² + b² = c² </span>
+
+          <!-- 03 -->
+          <span class="formula"> x = (−b ± √(b² − 4ac)) / 2a </span>
+
+          <!-- 04 -->
+          <span class="formula"> ∑<sub>n=1</sub><sup>∞</sup> 1/n² = π²/6 </span>
+
+          <!-- 05 -->
+          <span class="formula">
+            ∫<sub>−∞</sub><sup>∞</sup> e<sup>−x²</sup> dx = √π
+          </span>
+
+          <!-- 06 -->
+          <span class="formula"> π = 3.141592653589793 </span>
+
+          <!-- 07 -->
+          <span class="formula"> φ = (1 + √5) / 2 </span>
+
+          <!-- 08 -->
+          <span class="formula"> √2 = 1.41421356237 </span>
+
+          <!-- 09 -->
+          <span class="formula"> lim<sub>x→0</sub> sin(x)/x = 1 </span>
+
+          <!-- 10 -->
+          <span class="formula"> sin²θ + cos²θ = 1 </span>
+
+          <!-- 11 -->
+          <span class="formula"> d/dx(eˣ) = eˣ </span>
+
+          <!-- 12 -->
+          <span class="formula"> ∫ 1/x dx = ln|x| + C </span>
+
+          <!-- 13 -->
+          <span class="formula">
+            d/dx ∫<sub>a</sub><sup>x</sup> f(t)dt = f(x)
+          </span>
+
+          <!-- 14 -->
+          <span class="formula"> (a + b)² = a² + 2ab + b² </span>
+
+          <!-- 15 -->
+          <span class="formula"> a² − b² = (a − b)(a + b) </span>
+
+          <!-- 16 -->
+          <span class="formula"> x² + y² = r² </span>
+
+          <!-- 17 -->
+          <span class="formula"> A = πr² </span>
+
+          <!-- 18 -->
+          <span class="formula"> C = 2πr </span>
+
+          <!-- 19 -->
+          <span class="formula"> V = 4πr³/3 </span>
+
+          <!-- 20 -->
+          <span class="formula"> y = mx + b </span>
+
+          <!-- 21 -->
+          <span class="formula"> logₐ(xy) = logₐx + logₐy </span>
+
+          <!-- 22 -->
+          <span class="formula"> ln(eˣ) = x </span>
+
+          <!-- 23 -->
+          <span class="formula"> 1 + 2 + ··· + n = n(n + 1)/2 </span>
+
+          <!-- 24 -->
+          <span class="formula"> ∑<sub>k=0</sub><sup>n</sup> C(n,k) = 2ⁿ </span>
+
+          <!-- 25 -->
+          <span class="formula">
+            f′(x) = lim<sub>h→0</sub>
+            [f(x+h)−f(x)]/h
+          </span>
+
+          <!-- 26 -->
+          <span class="formula"> ∫<sub>a</sub><sup>b</sup> f(x)dx </span>
+
+          <!-- 27 -->
+          <span class="formula"> cos(2θ) = cos²θ − sin²θ </span>
+
+          <!-- 28 -->
+          <span class="formula"> sin(2θ) = 2sinθ cosθ </span>
+
+          <!-- 29 -->
+          <span class="formula"> eˣ = ∑<sub>n=0</sub><sup>∞</sup> xⁿ/n! </span>
+
+          <!-- 30 -->
+          <span class="formula"> 1 + r + r² + ··· = 1/(1 − r) </span>
+
+          <!-- 31 -->
+          <span class="formula"> n! = n(n−1)(n−2)···1 </span>
+
+          <!-- 32 -->
+          <span class="formula"> e = lim<sub>n→∞</sub>(1 + 1/n)ⁿ </span>
+
+          <!-- 33 -->
+          <span class="formula"> Γ(n) = (n − 1)! </span>
+
+          <!-- 34 -->
+          <span class="formula"> ζ(s) = ∑<sub>n=1</sub><sup>∞</sup> 1/nˢ </span>
+
+          <!-- 35 -->
+          <span class="formula">
+            ∫<sub>0</sub><sup>1</sup>
+            xⁿ dx = 1/(n + 1)
+          </span>
+
+          <!-- 36 -->
+          <span class="formula"> cosh²x − sinh²x = 1 </span>
+
+          <!-- 37 -->
+          <span class="formula"> det(A − λI) = 0 </span>
+
+          <!-- 38 -->
+          <span class="formula"> ∇²φ = 0 </span>
+
+          <!-- 39 -->
+          <span class="formula"> ∂²u/∂t² = c²∇²u </span>
+
+          <!-- 40 -->
+          <span class="formula"> P(A|B) = P(B|A)P(A)/P(B) </span>
+
+          <!-- 41 -->
+          <span class="formula"> P(A ∩ B) = P(A)P(B|A) </span>
+
+          <!-- 42 -->
+          <span class="formula"> σ² = ∑(x − μ)²/N </span>
+
+          <!-- 43 -->
+          <span class="formula"> μ = (1/N)∑xᵢ </span>
+
+          <!-- 44 -->
+          <span class="formula"> σ = √Var(X) </span>
+
+          <!-- 45 -->
+          <span class="formula">
+            f(x) = e<sup>−(x−μ)²/(2σ²)</sup> / (σ√(2π))
+          </span>
+
+          <!-- 46 -->
+          <span class="formula"> P(X=k) = C(n,k)pᵏ(1−p)ⁿ⁻ᵏ </span>
+
+          <!-- 47 -->
+          <span class="formula"> P(n,r) = n!/(n−r)! </span>
+
+          <!-- 48 -->
+          <span class="formula"> C(n,r) = n!/[r!(n−r)!] </span>
+
+          <!-- 49 -->
+          <span class="formula"> Fₙ = Fₙ₋₁ + Fₙ₋₂ </span>
+
+          <!-- 50 -->
+          <span class="formula"> Fₙ = (φⁿ − ψⁿ)/√5 </span>
+
+          <!-- 51 -->
+          <span class="formula"> φ² = φ + 1 </span>
+
+          <!-- 52 -->
+          <span class="formula"> e<sup>ix</sup> = cos x + i sin x </span>
+
+          <!-- 53 -->
+          <span class="formula"> i² = −1 </span>
+
+          <!-- 54 -->
+          <span class="formula"> |z| = √(a² + b²) </span>
+
+          <!-- 55 -->
+          <span class="formula"> (cosθ + i sinθ)ⁿ = cos(nθ) + i sin(nθ) </span>
+
+          <!-- 56 -->
+          <span class="formula"> |⟨u,v⟩|² ≤ ⟨u,u⟩⟨v,v⟩ </span>
+
+          <!-- 57 -->
+          <span class="formula"> (a+b)/2 ≥ √(ab) </span>
+
+          <!-- 58 -->
+          <span class="formula"> A = √[s(s−a)(s−b)(s−c)] </span>
+
+          <!-- 59 -->
+          <span class="formula"> c² = a² + b² − 2ab cosC </span>
+
+          <!-- 60 -->
+          <span class="formula"> a/sinA = b/sinB = c/sinC </span>
+
+          <!-- 61 -->
+          <span class="formula"> d = √[(x₂−x₁)² + (y₂−y₁)²] </span>
+
+          <!-- 62 -->
+          <span class="formula"> M = ((x₁+x₂)/2, (y₁+y₂)/2) </span>
+
+          <!-- 63 -->
+          <span class="formula"> m = (y₂−y₁)/(x₂−x₁) </span>
+
+          <!-- 64 -->
+          <span class="formula"> y = ax² + bx + c </span>
+
+          <!-- 65 -->
+          <span class="formula"> d/dx(xⁿ) = nxⁿ⁻¹ </span>
+
+          <!-- 66 -->
+          <span class="formula"> ∫xⁿdx = xⁿ⁺¹/(n+1) + C </span>
+
+          <!-- 67 -->
+          <span class="formula"> (fg)′ = f′g + fg′ </span>
+
+          <!-- 68 -->
+          <span class="formula"> (f/g)′ = (f′g − fg′)/g² </span>
+
+          <!-- 69 -->
+          <span class="formula"> (f∘g)′ = (f′∘g)g′ </span>
+
+          <!-- 70 -->
+          <span class="formula"> ∫u dv = uv − ∫v du </span>
+
+          <!-- 71 -->
+          <span class="formula"> u = g(x), du = g′(x)dx </span>
+
+          <!-- 72 -->
+          <span class="formula">
+            f(x) = ∑<sub>n=0</sub><sup>∞</sup>
+            f⁽ⁿ⁾(a)(x−a)ⁿ/n!
+          </span>
+
+          <!-- 73 -->
+          <span class="formula"> sin x = x − x³/3! + x⁵/5! − ··· </span>
+
+          <!-- 74 -->
+          <span class="formula"> cos x = 1 − x²/2! + x⁴/4! − ··· </span>
+
+          <!-- 75 -->
+          <span class="formula"> ln(1+x) = x − x²/2 + x³/3 − ··· </span>
+
+          <!-- 76 -->
+          <span class="formula"> arctan x = x − x³/3 + x⁵/5 − ··· </span>
+
+          <!-- 77 -->
+          <span class="formula"> ∑<sub>n=1</sub><sup>∞</sup> 1/n = ∞ </span>
+
+          <!-- 78 -->
+          <span class="formula">
+            ∑<sub>k=1</sub><sup>n</sup> k = n(n+1)/2
+          </span>
+
+          <!-- 79 -->
+          <span class="formula"> ∑k² = n(n+1)(2n+1)/6 </span>
+
+          <!-- 80 -->
+          <span class="formula"> ∑k³ = [n(n+1)/2]² </span>
+
+          <!-- 81 -->
+          <span class="formula"> n! ≈ √(2πn)(n/e)ⁿ </span>
+
+          <!-- 82 -->
+          <span class="formula"> π(x) ~ x/lnx </span>
+
+          <!-- 83 -->
+          <span class="formula"> a<sup>p−1</sup> ≡ 1 (mod p) </span>
+
+          <!-- 84 -->
+          <span class="formula"> gcd(a,b) = gcd(b, a mod b) </span>
+
+          <!-- 85 -->
+          <span class="formula"> a<sup>φ(n)</sup> ≡ 1 (mod n) </span>
+
+          <!-- 86 -->
+          <span class="formula"> a ≡ b (mod n) </span>
+
+          <!-- 87 -->
+          <span class="formula"> A⁻¹ = adj(A)/det(A) </span>
+
+          <!-- 88 -->
+          <span class="formula"> det [a b; c d] = ad − bc </span>
+
+          <!-- 89 -->
+          <span class="formula"> tr(A) = ∑aᵢᵢ </span>
+
+          <!-- 90 -->
+          <span class="formula"> (AB)ᵢⱼ = ∑ₖ aᵢₖbₖⱼ </span>
+
+          <!-- 91 -->
+          <span class="formula"> a · b = |a||b|cosθ </span>
+
+          <!-- 92 -->
+          <span class="formula"> |a × b| = |a||b|sinθ </span>
+
+          <!-- 93 -->
+          <span class="formula">
+            ∭<sub>V</sub> ∇·F dV = ∬<sub>S</sub> F·n dS
+          </span>
+
+          <!-- 94 -->
+          <span class="formula">
+            ∬<sub>S</sub> (∇×F)·dS = ∮<sub>∂S</sub> F·dr
+          </span>
+
+          <!-- 95 -->
+          <span class="formula">
+            ∮<sub>C</sub> Pdx + Qdy = ∬(∂Q/∂x − ∂P/∂y)dA
+          </span>
+
+          <!-- 96 -->
+          <span class="formula"> f(a) = 1/(2πi) ∮ f(z)/(z−a) dz </span>
+
+          <!-- 97 -->
+          <span class="formula"> ∮f(z)dz = 2πi∑Res(f) </span>
+
+          <!-- 98 -->
+          <span class="formula">
+            F(ω) = ∫<sub>−∞</sub><sup>∞</sup>
+            f(t)e<sup>−iωt</sup>dt
+          </span>
+
+          <!-- 99 -->
+          <span class="formula"> f(x) = a₀/2 + ∑(aₙcos nx + bₙsin nx) </span>
+
+          <!-- 100 -->
+          <span class="formula"> ∫|f(x)|²dx = (1/2π)∫|F(ω)|²dω </span>
+        </div>
+      </div>
+
+      <!-- =========================
+           CALCULADORA
+           A imagem fornece o corpo visual; display e botões reais
+           ficam posicionados por cima dela com CSS.
+      ========================== -->
+
+      <div class="calculator">
+        <img
+          src="./imagens/ne84-calculator.png"
+          alt="Mão segurando a calculadora Nagato Electronics NE-84"
+          class="calculator-image"
+          draggable="false"
+        />
+
+        <!-- =========================
+             DISPLAY
+             <output> recebe o valor calculado; os elementos <time>
+             recebem hora e data atualizadas pelo clock.js.
+        ========================== -->
+
+        <div class="calculator-display">
+          <div class="display-main">
+            <span id="display-operator" class="display-operator"></span>
+
+            <output
+              id="display-result"
+              class="display-result"
+              aria-live="polite"
+            >
+              0
+            </output>
+          </div>
+
+          <div class="display-info">
+            <div class="date-time">
+              <time id="clock">--:--:--</time>
+
+              <time id="date">-- --- ----</time>
+            </div>
+          </div>
+        </div>
+
+        <!-- =========================
+             CONTROLES
+             Os botões são transparentes e coincidem com as teclas
+             desenhadas na imagem. data-key informa ao JavaScript
+             qual entrada cada área clicável representa.
+
+             role="group" identifica este conjunto como um grupo de
+             controles para tecnologias assistivas.
+        ========================== -->
+
+        <div
+          class="calculator-controls"
+          role="group"
+          aria-label="Controles da calculadora"
+        >
+          <button
+            type="button"
+            class="key key-ac"
+            data-key="AC"
+            aria-label="Limpar"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-sign"
+            data-key="+/-"
+            aria-label="Alterar sinal"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-percent"
+            data-key="%"
+            aria-label="Porcentagem"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-divide"
+            data-key="/"
+            aria-label="Dividir"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-7"
+            data-key="7"
+            aria-label="Número 7"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-8"
+            data-key="8"
+            aria-label="Número 8"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-9"
+            data-key="9"
+            aria-label="Número 9"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-multiply"
+            data-key="*"
+            aria-label="Multiplicar"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-4"
+            data-key="4"
+            aria-label="Número 4"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-5"
+            data-key="5"
+            aria-label="Número 5"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-6"
+            data-key="6"
+            aria-label="Número 6"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-subtract"
+            data-key="-"
+            aria-label="Subtrair"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-1"
+            data-key="1"
+            aria-label="Número 1"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-2"
+            data-key="2"
+            aria-label="Número 2"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-3"
+            data-key="3"
+            aria-label="Número 3"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-add"
+            data-key="+"
+            aria-label="Somar"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-0"
+            data-key="0"
+            aria-label="Número 0"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-decimal"
+            data-key="."
+            aria-label="Decimal"
+          ></button>
+
+          <button
+            type="button"
+            class="key key-equals"
+            data-key="="
+            aria-label="Resultado"
+          ></button>
+        </div>
+      </div>
+    </main>
+
+    <!--
+      Scripts com defer são executados após o HTML ser interpretado.
+      calculator, clock e background expõem suas APIs; main.js é
+      carregado por último e inicializa os três sistemas.
+    -->
+
+    <script defer src="./scripts/calculator.js"></script>
+    <script defer src="./scripts/clock.js"></script>
+    <script defer src="./scripts/background.js"></script>
+    <script defer src="./scripts/main.js"></script>
+  </body>
+</html>

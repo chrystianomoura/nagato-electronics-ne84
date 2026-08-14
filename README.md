@@ -86,6 +86,11 @@ nagato-electronics-ne84/
 │   │   ├── ne84-desktop.png
 │   │   └── ne84-mobile.png
 │   │
+│   ├── apple-touch-icon.png
+│   ├── favicon-16x16.png
+│   ├── favicon-32x32.png
+│   ├── favicon-512x512.png
+│   ├── favicon.ico
 │   └── ne84-calculator.png
 │
 ├── scripts/
